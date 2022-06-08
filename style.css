@@ -10,9 +10,15 @@ body {
   font-family: "Anton", sans-serif;
   text-align: center;
   letter-spacing: 0.2em;
+  background: url("https://wallpaperaccess.com/full/2985860.jpg") no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-#board {
+#boardGame {
   width: 500px;
   height: 500px;
   border: 5px solid rgb(110, 100, 88);
@@ -20,9 +26,10 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  border-radius: 2%;
 }
 
-#board div {
+#boardGame div {
   width: 48px;
   height: 48px;
   border: 1px solid white;
@@ -35,7 +42,7 @@ body {
   background-color: rgba(165, 42, 42, 0.359);
 }
 
-#flag-button {
+p button {
   margin-top: 1%;
   width: 60px;
   height: 30px;

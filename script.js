@@ -1,26 +1,18 @@
-var board = [];
-var rows = 10;
-var columns = 10;
-
-var minesCount = 10;
-var minesLocation = []; // "2-2", "3-4", "2-1"
-
-var tilesClicked = 0; //goal to click all tiles except the ones containing mines
-var flagEnabled = false;
-
-var gameOver = false;
+//zmienne
+let board = [];
+let rows = 10;
+let columns = 10;
+let minesCount = 10;
+let minesLocation = [];
+let tilesClicked = 0;
+let flagEnabled = false;
+let gameOver = false;
 
 window.onload = function () {
   startGame();
 };
 
 function setMines() {
-  // minesLocation.push("2-2");
-  // minesLocation.push("2-3");
-  // minesLocation.push("5-6");
-  // minesLocation.push("3-4");
-  // minesLocation.push("1-1");
-
   let minesLeft = minesCount;
   while (minesLeft > 0) {
     let r = Math.floor(Math.random() * rows);
@@ -35,25 +27,21 @@ function setMines() {
 }
 
 function startGame() {
-  document.getElementById("mines-count").innerText = minesCount;
+  document.getElementById("minesCount").innerText = minesCount;
   document.getElementById("flag-button").addEventListener("click", setFlag);
   setMines();
 
-  //populate our board
   for (let r = 0; r < rows; r++) {
     let row = [];
     for (let c = 0; c < columns; c++) {
-      //<div id="0-0"></div>
       let tile = document.createElement("div");
       tile.id = r.toString() + "-" + c.toString();
       tile.addEventListener("click", clickTile);
-      document.getElementById("board").append(tile);
+      document.getElementById("boardGame").append(tile);
       row.push(tile);
     }
     board.push(row);
   }
-
-  console.log(board);
 }
 
 function setFlag() {
@@ -153,7 +141,7 @@ function checkMine(r, c) {
   }
 
   if (tilesClicked == rows * columns - minesCount) {
-    document.getElementById("mines-count").innerText = "Cleared";
+    document.getElementById("minesCount").innerText = "Cleared";
     gameOver = true;
   }
 }
